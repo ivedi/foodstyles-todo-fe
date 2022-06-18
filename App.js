@@ -7,6 +7,7 @@ import Apploading from 'expo-app-loading';
 import useFonts from './hooks/useFonts';
 import PageContainer from './components/PageContainer';
 import PageHeader from './components/PageHeader';
+import Input from './components/Input';
 
 export default function App() {
   const [isReady, setIsReady] = useState(false);
@@ -25,11 +26,17 @@ export default function App() {
     );
   }
 
+
+  const handleInput = (value) => {
+    return !!value;
+  };
+
   return (
     <AppContainer>
       <StatusBar style="auto" />
       <PageContainer>
         <PageHeader title="Welcome back!" subtitle="Log in to continue." />
+        <Input placeholder="Username" validate={handleInput} onChangeText={() => {}} />
       </PageContainer>
     </AppContainer>
   );
