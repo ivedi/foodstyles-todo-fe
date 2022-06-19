@@ -7,11 +7,19 @@ import {
 import styled from 'styled-components/native';
 
 
-export default function NavLink({ title, navigate }) {
+export default function TextButton({
+  text,
+  textColor,
+  hasUnderline,
+  onClick }) {
   return (
     <Container>
-      <ClickableArea onPress={navigate}>
-        <ButtonText>{title}</ButtonText>
+      <ClickableArea onPress={onClick}>
+        <ButtonText
+          color={textColor || '#1f2a4b'}
+          underline={hasUnderline ? 'underline' : 'none' }>
+          {text}
+        </ButtonText>
       </ClickableArea>
     </Container>
   );
@@ -30,7 +38,8 @@ const ClickableArea = styled.TouchableOpacity`
 `;
 
 const ButtonText = styled.Text`
-  text-decoration: underline;
+  text-decoration: ${(props) => props.underline};
+  text-decoration-color: ${(props) => props.color};
   font-family: mark-pro-regular;
   font-size: 14px;
   font-weight: normal;
@@ -38,6 +47,6 @@ const ButtonText = styled.Text`
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: #1f2a4b;
+  color: ${(props) => props.color};
   width: auto;
 `;

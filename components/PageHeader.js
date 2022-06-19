@@ -16,7 +16,7 @@ export default function PageHeader({ title, subtitle }) {
   return (
     <>
       <CheckIcon />
-      <Title>{title}</Title>
+      <Title bottomMargin={subtitle ? '0.4rem' : '1.5rem' }>{title}</Title>
       {subtitleComponent}
     </>
   );
@@ -32,7 +32,8 @@ const Title = styled.Text`
   line-height: normal;
   letter-spacing: normal;
   color: #1f2a4b;
-  margin: 25px 168px 6px 0;
+  margin-top: 1.5rem;
+  margin-bottom: ${(props) => props.bottomMargin};
 `;
 
 const Subtitle = styled.Text`

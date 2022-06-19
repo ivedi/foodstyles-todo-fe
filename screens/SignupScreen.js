@@ -7,7 +7,7 @@ import styled from 'styled-components/native';
 import PageContainer from '../components/PageContainer';
 import PageHeader from '../components/PageHeader';
 import PageInput from '../components/PageInput';
-import NavLink from '../components/NavLink';
+import TextButton from '../components/TextButton';
 import PageButton from '../components/PageButton';
 
 export default function SignupScreen() {
@@ -44,9 +44,10 @@ export default function SignupScreen() {
               validate={validatePassword}
               onChangeText={() => {}}
               secureTextEntry={true} />
-            <NavLink
-              title="Do have an account? Sign in."
-              navigate={goToLogin} />
+            <TextButton
+              text="Do have an account? Sign in."
+              hasUnderline={true}
+              onClick={goToLogin} />
             <PageButton
               title="Sign Up"
               onClick={signup} />

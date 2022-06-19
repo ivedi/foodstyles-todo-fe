@@ -7,21 +7,11 @@ import styled from 'styled-components/native';
 import PageContainer from '../components/PageContainer';
 import PageHeader from '../components/PageHeader';
 import PageInput from '../components/PageInput';
-import TextButton from '../components/TextButton';
-import PageButton from '../components/PageButton';
+import TodoItem from '../components/TodoItem';
 
 
 export default function LoginScreen({ navigation }) {
-  const validateEmail = (text) => !!text;
-  const validatePassword = (text) => !!text;
-
-  const goToSignup = () => {
-    navigation.navigate('Signup');
-  }
-
-  const login = () => {
-    console.log('login clicked!');
-  }
+  const validateTodo = (text) => !!text;
 
   return (
     <SafeContainer>
@@ -29,24 +19,13 @@ export default function LoginScreen({ navigation }) {
         <PageWrapper>
           <PageContainer>
             <PageHeader
-              title="Welcome back!"
-              subtitle="Log in to continue." />
+              title="Todo List" />
             <PageInput
-              placeholder="Email"
-              validate={validateEmail}
+              placeholder="Add a new todo"
+              validate={validateTodo}
               onChangeText={() => {}} />
-            <PageInput
-              placeholder="Password"
-              validate={validatePassword}
-              onChangeText={() => {}}
-              secureTextEntry={true} />
-            <TextButton
-              text="Don't have an account? Sign up."
-              hasUnderline={true}
-              onClick={goToSignup} />
-            <PageButton
-              title="Log In"
-              onClick={login} />
+            <TodoItem />
+            <TodoItem />
           </PageContainer>
         </PageWrapper>
       </ScrollContainer>
@@ -71,4 +50,4 @@ const PageWrapper = styled.View`
   height: 100vh;
   alignItems: center;
   justifyContent: center;
-`;
+`
