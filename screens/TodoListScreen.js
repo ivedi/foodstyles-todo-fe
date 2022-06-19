@@ -2,6 +2,8 @@ import React from 'react';
 import {
   ScrollView,
   SafeAreaView,
+  FlatList,
+  Text,
 } from 'react-native';
 import styled from 'styled-components/native';
 import PageContainer from '../components/PageContainer';
@@ -13,15 +15,19 @@ import TodoItem from '../components/TodoItem';
 export default function LoginScreen({ navigation }) {
   const validateTodo = (text) => !!text;
   const todos = [{
+    id: 0,
     title: "Make a todo list",
     isCompleted: false,
   },{
+    id: 1,
     title: "Check off first item",
     isCompleted: true,
   },{
+    id: 2,
     title: "Realize you already did 2 things today",
     isCompleted: false,
   },{
+    id: 3,
     title: "Reward yourself with a nice, long nap",
     isCompleted: false,
   }];
@@ -37,10 +43,17 @@ export default function LoginScreen({ navigation }) {
               placeholder="Add a new todo"
               validate={validateTodo}
               onChangeText={() => {}} />
-            <TodoItem todo={todos[0]} />
-            <TodoItem todo={todos[1]} />
-            <TodoItem todo={todos[2]} />
-            <TodoItem todo={todos[3]} />
+            <FlatList
+              data={todos}
+              keyExtractor={(todo) => todo.id}
+              ListEmptyComponent={() => 
+                <EmptyTodo>
+                  There is no todo here!
+                </EmptyTodo>
+              }
+              renderItem={({ item, index }) => (
+                <TodoItem todo={item} />
+              )} />
           </PageContainer>
         </PageWrapper>
       </ScrollContainer>
@@ -66,3 +79,11 @@ const PageWrapper = styled.View`
   alignItems: center;
   justifyContent: center;
 `
+
+const EmptyTodo = styled.Text`
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #9ea3b2;
+  font-style: italic;
+`;

@@ -11,32 +11,32 @@ import TextButton from './TextButton';
 
 export default function TodoItem({ todo }) {
   return (
-    <Container>
-      <BouncyCheckbox
-        size={16}
-        fillColor="#4a77e5"
-        textComponent={
+    <BouncyCheckbox
+      isChecked={todo.isCompleted}
+      size={16}
+      fillColor="#4a77e5"
+      textComponent={
+        <>
           <CheckboxText>{todo.title}</CheckboxText>
-        }
-        iconStyle={{
-          borderColor: "#00000040",
-          borderRadius: "4px",
-        }}
-      />
-      <TextButton
-        text="x"
-        textColor="#bfbfbf"
-        width="auto"
-        marginLeft="auto"
-        fontSize="20px"/>
-    </Container>
+          <TextButton
+            text="x"
+            textColor="#bfbfbf"
+            width="auto"
+            marginLeft="auto"
+            fontSize="20px"/>
+        </>
+      }
+      style={{
+        width: '100%',
+        marginBottom: '0.4rem',
+      }}
+      iconStyle={{
+        borderColor: "#00000040",
+        borderRadius: "4px",
+      }}
+    />
   );
 }
-
-const Container = styled.View`
-  flex-direction: row;
-  margin-bottom: 0.2rem;
-`;
 
 const CheckboxText = styled.Text`
   font-family: mark-pro-regular;
