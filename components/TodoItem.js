@@ -5,6 +5,7 @@ import {
   Text,
 } from 'react-native';
 import styled from 'styled-components/native';
+import TextButton from './TextButton';
 
 
 export default function TodoItem() {
@@ -12,10 +13,17 @@ export default function TodoItem() {
     <Container>
       <CheckBox />
       <Text>This is todo item</Text>
+      <DeleteContainer>
+        <TextButton text="x" />
+      </DeleteContainer>
     </Container>
   );
 }
 
 const Container = styled.View`
   flex-direction: row;
+`;
+
+const DeleteContainer = styled.View`
+  margin-left: auto;
 `;

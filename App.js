@@ -36,6 +36,10 @@ export default function App() {
         headerShown: false
       }}>
         <Stack.Screen
+          name="TodoList"
+          component={TodoListScreen}
+        />
+        <Stack.Screen
           name="Login"
           component={LoginScreen}
         />
