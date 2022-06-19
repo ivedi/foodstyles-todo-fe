@@ -14,9 +14,9 @@ export default function PageContainer(props) {
 }
 
 const Container = styled.View`
-  width: 390px;
+  width: 25rem;
   min-height: 5px;
-  padding: 35px 30px 63px;
+  padding: 2.5rem 1.8rem 3.8rem;
   border-radius: 8px;
   background-color: white;
 
