@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Text,
   ScrollView,
   SafeAreaView,
 } from 'react-native';
@@ -8,11 +7,16 @@ import styled from 'styled-components/native';
 import PageContainer from '../components/PageContainer';
 import PageHeader from '../components/PageHeader';
 import PageInput from '../components/PageInput';
+import NavLink from '../components/NavLink';
 
 
-export default function LoginScreen() {
+export default function LoginScreen({ navigation }) {
   const validateEmail = (text) => !!text;
   const validatePassword = (text) => !!text;
+
+  const goToSignup = () => {
+    navigation.navigate('Signup');
+  }
 
   return (
     <SafeContainer>
@@ -29,6 +33,9 @@ export default function LoginScreen() {
               validate={validatePassword}
               onChangeText={() => {}}
               secureTextEntry={true} />
+            <NavLink
+              title="Don't have an account? Sign up."
+              navigate={goToSignup} />
           </PageContainer>
         </PageWrapper>
       </ScrollContainer>
@@ -53,9 +60,4 @@ const PageWrapper = styled.View`
   height: 100vh;
   alignItems: center;
   justifyContent: center;
-`;
-
-
-const Temp = styled.Text`
-  font-size: 50px;
 `;
