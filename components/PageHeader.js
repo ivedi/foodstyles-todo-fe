@@ -23,6 +23,7 @@ export default function PageHeader({ title, subtitle }) {
 }
 
 const Title = styled.Text`
+  width: 100%;
   font-family: mark-pro-regular;
   font-size: 22px;
   font-weight: bold;
@@ -35,6 +36,7 @@ const Title = styled.Text`
 `;
 
 const Subtitle = styled.Text`
+  width: 100%;
   margin: 6px 186px 43px 0;
   font-family: mark-pro-regular;
   font-size: 16px;

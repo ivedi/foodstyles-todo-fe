@@ -8,6 +8,7 @@ import PageContainer from '../components/PageContainer';
 import PageHeader from '../components/PageHeader';
 import PageInput from '../components/PageInput';
 import NavLink from '../components/NavLink';
+import PageButton from '../components/PageButton';
 
 
 export default function LoginScreen({ navigation }) {
@@ -18,12 +19,18 @@ export default function LoginScreen({ navigation }) {
     navigation.navigate('Signup');
   }
 
+  const login = () => {
+    console.log('login clicked!');
+  }
+
   return (
     <SafeContainer>
       <ScrollContainer>
         <PageWrapper>
           <PageContainer>
-            <PageHeader title="Welcome back!" subtitle="Log in to continue." />
+            <PageHeader
+              title="Welcome back!"
+              subtitle="Log in to continue." />
             <PageInput
               placeholder="Email"
               validate={validateEmail}
@@ -36,6 +43,9 @@ export default function LoginScreen({ navigation }) {
             <NavLink
               title="Don't have an account? Sign up."
               navigate={goToSignup} />
+            <PageButton
+              title="Log In"
+              onClick={login} />
           </PageContainer>
         </PageWrapper>
       </ScrollContainer>

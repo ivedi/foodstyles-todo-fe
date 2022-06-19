@@ -7,10 +7,10 @@ import {
 import styled from 'styled-components/native';
 
 
-export default function NavLink({ title, navigate }) {
+export default function PageButton({ title, onClick }) {
   return (
     <Container>
-      <ClickableArea onPress={navigate}>
+      <ClickableArea onPress={onClick}>
         <ButtonText>{title}</ButtonText>
       </ClickableArea>
     </Container>
@@ -20,24 +20,28 @@ export default function NavLink({ title, navigate }) {
 const Container = styled.View`
   width: 100%;
   flex-wrap: wrap;
-  align-items: flex-start;
-  margin-bottom: 1.25rem;
+  align-items: center;
+  margin-top: 1.25rem;
 `;
 
 const ClickableArea = styled.TouchableOpacity`
+  width: 100%;
+  padding: 0.5rem;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: center;
+  background-color: #4a77e5;
+  border: 1px solid #4a77e5;
+  border-radius: 4px;
 `;
 
 const ButtonText = styled.Text`
-  text-decoration: underline;
   font-family: mark-pro-regular;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: #1f2a4b;
+  color: #fff;
   width: auto;
 `;
