@@ -12,6 +12,19 @@ import TodoItem from '../components/TodoItem';
 
 export default function LoginScreen({ navigation }) {
   const validateTodo = (text) => !!text;
+  const todos = [{
+    title: "Make a todo list",
+    isCompleted: false,
+  },{
+    title: "Check off first item",
+    isCompleted: true,
+  },{
+    title: "Realize you already did 2 things today",
+    isCompleted: false,
+  },{
+    title: "Reward yourself with a nice, long nap",
+    isCompleted: false,
+  }];
 
   return (
     <SafeContainer>
@@ -24,8 +37,10 @@ export default function LoginScreen({ navigation }) {
               placeholder="Add a new todo"
               validate={validateTodo}
               onChangeText={() => {}} />
-            <TodoItem />
-            <TodoItem />
+            <TodoItem todo={todos[0]} />
+            <TodoItem todo={todos[1]} />
+            <TodoItem todo={todos[2]} />
+            <TodoItem todo={todos[3]} />
           </PageContainer>
         </PageWrapper>
       </ScrollContainer>

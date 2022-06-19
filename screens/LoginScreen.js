@@ -43,6 +43,7 @@ export default function LoginScreen({ navigation }) {
             <TextButton
               text="Don't have an account? Sign up."
               hasUnderline={true}
+              marginBottom="1.5rem"
               onClick={goToSignup} />
             <PageButton
               title="Log In"

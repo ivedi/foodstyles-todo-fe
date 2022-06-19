@@ -10,13 +10,21 @@ import styled from 'styled-components/native';
 export default function TextButton({
   text,
   textColor,
+  fontSize,
+  width,
+  marginLeft,
+  marginBottom,
   hasUnderline,
   onClick }) {
   return (
-    <Container>
+    <Container
+      width={width || '100%'}
+      marginBottom={marginBottom || '0'}
+      marginLeft={marginLeft || '0'}>
       <ClickableArea onPress={onClick}>
         <ButtonText
           color={textColor || '#1f2a4b'}
+          fontSize={fontSize || '14px' }
           underline={hasUnderline ? 'underline' : 'none' }>
           {text}
         </ButtonText>
@@ -26,10 +34,11 @@ export default function TextButton({
 }
 
 const Container = styled.View`
-  width: 100%;
+  width: ${(props) => props.width};
   flex-wrap: wrap;
   align-items: flex-start;
-  margin-bottom: 1.25rem;
+  margin-left: ${(props) => props.marginLeft};
+  margin-bottom: ${(props) => props.marginBottom};
 `;
 
 const ClickableArea = styled.TouchableOpacity`
@@ -41,7 +50,7 @@ const ButtonText = styled.Text`
   text-decoration: ${(props) => props.underline};
   text-decoration-color: ${(props) => props.color};
   font-family: mark-pro-regular;
-  font-size: 14px;
+  font-size: ${(props) => props.fontSize};
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
