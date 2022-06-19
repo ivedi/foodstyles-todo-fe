@@ -9,7 +9,20 @@ import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import TextButton from './TextButton';
 
 
-export default function TodoItem({ todo }) {
+export default function TodoItem({
+  todo,
+  showDelete,
+  }) {
+
+  let deleteButton;
+  if (showDelete) {
+    deleteButton = <TextButton
+      text="x"
+      textColor="#bfbfbf"
+      width="auto"
+      marginLeft="auto"
+      fontSize="20px" />
+  }
   return (
     <BouncyCheckbox
       isChecked={todo.isCompleted}
@@ -18,17 +31,12 @@ export default function TodoItem({ todo }) {
       textComponent={
         <>
           <CheckboxText>{todo.title}</CheckboxText>
-          <TextButton
-            text="x"
-            textColor="#bfbfbf"
-            width="auto"
-            marginLeft="auto"
-            fontSize="20px"/>
+          {deleteButton}
         </>
       }
       style={{
         width: '100%',
-        marginBottom: '0.4rem',
+        marginBottom: '1rem',
       }}
       iconStyle={{
         borderColor: "#00000040",
